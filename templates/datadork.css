@@ -1,0 +1,26 @@
+div#wrap{
+	width: 80px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	background-color:;
+}
+
+#footer{
+	border-top: 1px solid gray;
+	margin-top: 200px;
+	height:40px;
+	text-align: center;
+	font-size: 11px;
+	color: gray;
+}
+
+body #adduseremail{
+  width: 50%;
+  float:left;
+}
+
+body #adduserpass{
+  width: 50%;
+  float:right;
+}

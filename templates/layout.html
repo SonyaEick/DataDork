@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+   <title>DataDork | Dating for Awkward Folks</title>
+   <link rel="stylesheet" type="text/css" href="/static/datadork.css">
+   <link href='http://fonts.googleapis.com/css?family=Parisienne|Jura|VT323' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div id="header">
+	<p id="data">Data</p><p id="dork">Dork</p>
+	<h2>Give people feedback on their sucky dating skills.</h2>
+</div>
+
+<div id="wrap">
+
+<!-- 	<div class="container">
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		   <ul class=flashes>
+		   	{% for messages in messages %}
+		   	   {{ message }}
+		   	{% endfor %}
+		   </ul>
+		{% endif %}
+	{% endwith %} -->
+
+	{% block body %}
+	{% endblock %}
+
+	</div>
+<br><br>
+<a href="/profile">Go to your profile</a><br>
+<a href="/rating">Rate someone</a><br>
+<a href="/feedback">Feedback Page</a><br>
+<a href="/login">Login Page</a>
+<br><br>
+<form action="{{ url_for ("logout") }}" method="POST">
+    <input id="button_login" type="submit" value="Log Out">
+</form>
+
+</div>
+<div id="footer">&copy; SonYa Eick 2012</div>
+</body>
+</html>

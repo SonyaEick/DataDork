@@ -1,0 +1,54 @@
+div#header{
+	width: 790px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	text-align: center;
+	background-color: white;
+	padding: 10px;
+}
+
+div#header #data{
+	font-family:'Parisienne', cursive;
+	font-size: 70px;
+	display: inline-block;
+}
+div#header #dork{
+	font-family: 'VT323', cursive;
+	font-size: 76px;
+	display: inline-block;
+}
+
+div#wrap{
+	width: 790px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	padding: 10px;
+}
+
+body{
+	font-family: 'Jura', sans-serif;
+}
+
+#footer{
+	border-top: 1px solid gray;
+	margin-top: 200px;
+	height:40px;
+	text-align: center;
+	font-size: 11px;
+	color: gray;
+}
+
+
+
+/*
+body #adduseremail{
+  width: 50%;
+  float:left;
+}
+
+body #adduserpass{
+  width: 50%;
+  float:right;
+}*/

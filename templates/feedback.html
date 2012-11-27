@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <h1>How was the Feedback?</h1>
+    <br>
+
+
+
+	<br>
+    <p>While rating individual's feedback, keep in mind that everyone here is human &amp; you have the possibility of being marked down for unfair feedback.</p>
+    <form action="/new_feedback" method="POST">
+
+    	<!-- List of Recipients -->
+    	<select name = "rater_id">
+    	{% for user in users %}
+    	<option value = "{{ user.id }}">User: {{ user.id }}: {{ user.email }}</option>
+    	{% endfor %}
+    	</select>
+		<!-- End Recipient List -->
+
+      <fieldset>
+        <legend>Feedback</legend>
+          <p>Were they unfair or overly biased?</p>
+				<p>
+					<select name = "star1">
+						<option value = "1">1</option>
+						<option value = "2">2</option>
+						<option value = "3">3</option>
+						<option value = "4">4</option>
+						<option value = "5">5</option>
+					</select>
+				</p>
+          <textarea name = "text1"
+                  rows = "3"
+                  cols = "80" placeholder ="Your text here"></textarea>
+          <p>Did they give you constructive advice?</p>
+          				<p>
+					<select name = "star2">
+						<option value = "1">1</option>
+						<option value = "2">2</option>
+						<option value = "3">3</option>
+						<option value = "4">4</option>
+						<option value = "5">5</option>
+					</select>
+				</p>
+          <textarea name = "text2"
+                  rows = "3"
+                  cols = "80" placeholder ="Your text here"></textarea>
+
+          <p>How was the delivery?</p>
+          				<p>
+					<select name = "star3">
+						<option value = "1">1</option>
+						<option value = "2">2</option>
+						<option value = "3">3</option>
+						<option value = "4">4</option>
+						<option value = "5">5</option>
+					</select>
+				</p>
+          <textarea name = "text3"
+                  rows = "3"
+                  cols = "80" placeholder ="Your text here"></textarea>
+      </fieldset>
+      <input id="button_rating" type="submit" value="Enter Feedback">
+    </form>
+
+<!--     <form action="/save_user" method="POST">
+        <strong>Email: <input type="text" name="user_email" placeholder="enter your email">
+        <br />
+        Password: <input type="password" name="password_field" placeholder="enter your password">
+        <br />
+        Age: <input type="integer" name="age_field" placeholder="enter your age">
+        <br /></strong>
+        <input type="submit">
+    </form> -->
+</div>
+
+
+{% endblock %}
