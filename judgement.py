@@ -97,23 +97,23 @@ def show_profile():
     fuser = model.session.query(model.User).filter(model.User.id == user_id).one()
     fvotes = model.session.query(model.Feedback).filter(model.Feedback.rater_id == user_id).all()
     number_of_voters = model.session.query(model.Rating).filter(model.Rating.recipient_id == user_id).count()
+    fnumber_of_voters = model.session.query(model.Feedback).filter(model.Feedback.rater_id == user_id).count()
     # select count(*) from users where email="admin";
 
 
     sum_of_votes = 0
-    if number_of_voters == 0:
-        dating = 0
+    dating = 0
+    feedback = 0
 
-    else:
+# Dating Score
+    if number_of_voters != 0:
         for vote in votes:
             sum_of_votes += vote.star1 + vote.star2 + vote.star3
             number_of_voters = len(votes) * 3
             dating = float(sum_of_votes) / number_of_voters
 
-    if number_of_voters == 0:
-        feedback = 0
-
-    else:
+# Feedback Score
+    if fnumber_of_voters != 0:
         for fvote in fvotes:
             sum_of_votes += vote.star1 + vote.star2 + vote.star3
             number_of_voters = len(fvotes) * 3
