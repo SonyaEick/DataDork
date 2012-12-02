@@ -7,20 +7,15 @@
 <p>THIS IS A LIST OF THINGS THIS PAGE WILL EVENTUALLY HAVE</p>
 <ul>
 	<ol>
-		<li>Percentage rankings amongst local daters</li>
+		<li>Personal stats vs. other local users with percentages</li>
 		<li>An option to upload a photo</li>
 		<li>A private messaging system that will redirect to another page</li>
-		<li></li>
-		<li></li>
+		<li>All the current session's user's information</li>
+		<li>Past ratings in a message format that will redirect to another page</li>
 </ul>
-
-<div name="Rating_list">
-{% for user in users %}
-
-	<p>User: {{ user.id }}: {{ user.email }}</p>
-
-{% endfor %}
-</div>
+	<p>Feedback Score: {{feedback}}
+	<p>Dating Average: {{dating}}
+	<p>User: {{ user.email }}</p>
 
 </div>
 {% endblock %}

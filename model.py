@@ -7,12 +7,11 @@ from flask.views import MethodView
 
 USER_COLS = ["id", "email", "password", "age"]
 
-engine = create_engine("sqlite:///ratings.db", echo=False)
-# Base.metadata.create_all(engine)
+engine = create_engine("sqlite:///ratings.db", echo=True)
 session = scoped_session(sessionmaker(bind=engine, autocommit=False, autoflush=False))
-
 Base = declarative_base()
 Base.query = session.query_property()
+Base.metadata.create_all(engine)
 
 
 class User(Base):

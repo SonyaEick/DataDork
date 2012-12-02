@@ -87,8 +87,41 @@ def new_feedback():
 
 @app.route("/profile")
 def show_profile():
-    # user_id = session.get("user_id", None)
-    return render_template("profile.html")
+    user_id = session['user_id']
+    user = model.session.query(model.User).filter(model.User.id == user_id).one()
+    votes = model.session.query(model.Rating).filter(model.Rating.recipient_id == user_id).all()
+    # recipient_id because I want to get the id of the user getting rated,
+    # which will be the current user logged in.
+    
+    # We made another user variable because the first one queries 
+    fuser = model.session.query(model.User).filter(model.User.id == user_id).one()
+    fvotes = model.session.query(model.Feedback).filter(model.Feedback.rater_id == user_id).all()
+    number_of_voters = model.session.query(model.Rating).filter(model.Rating.recipient_id == user_id).count()
+    # select count(*) from users where email="admin";
+
+
+    sum_of_votes = 0
+    if number_of_voters == 0:
+        dating = 0
+
+    else:
+        for vote in votes:
+            sum_of_votes += vote.star1 + vote.star2 + vote.star3
+            number_of_voters = len(votes) * 3
+            dating = float(sum_of_votes) / number_of_voters
+
+    if number_of_voters == 0:
+        feedback = 0
+
+    else:
+        for fvote in fvotes:
+            sum_of_votes += vote.star1 + vote.star2 + vote.star3
+            number_of_voters = len(fvotes) * 3
+            feedback = float(sum_of_votes) / number_of_voters
+
+
+    return render_template("profile.html", user = user, 
+                            dating=dating, feedback=feedback, fuser = fuser)
 
 @app.route("/rating")
 def rating():
